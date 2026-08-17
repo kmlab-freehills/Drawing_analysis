@@ -57,8 +57,10 @@ export async function POST(req: NextRequest) {
       });
 
       // Prompt (ユーザー指定の文言)
-      const question =
+      const question_old =
         "表面積を求めるのに必要な寸法を抽出してください。抽出した寸法を元にメッキに必要な表面積を計算してください。";
+      const question =
+      "表面積計算は，四角（立方体，直方体），穴，円柱，球，三角形といった基本図形に分解し，足し引きを行い全体の表面積計算を行ってください．表面積は平方ミリメートル単位でまず行ってください．表記はtex形式はつかわずmm2をつけてください．表面積の最終結果は平方デジメートルであるdmm2に直して最後の行に記載してください．";
 
       const result = await model.generateContent([
         {
